@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<h2>Registration Page!</h2>
+
+<form  name="username" method="indexMetod3" >
+    <div><label> User Name: <input type="text" name="user1"/> </label></div>
+    <br />
+    <div><label> Password: &nbsp;&nbsp; <input type="password" name="passwordClient"/> </label></div>
+    <br />
+    <div><label> First Name: <input type="text" name="first1"/> </label></div>
+    <br />
+    <div><label> Last Name: <input type="text" name="last1"/> </label></div>
+    <br />
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+<br />
+<p th:text="${mess1}" />
+</body>
+
+
+
+</html>

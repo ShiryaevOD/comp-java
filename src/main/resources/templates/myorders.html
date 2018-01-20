@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+    .blockorder {
+        overflow: scroll;
+        width: 300px;
+        height: 200px;
+        padding: 5px;
+        border: solid 1px black;
+    }
+    </style>
+
+<script>
+    function myClickOrder(number){
+      alert(number);
+
+    }
+    </script>
+
+<body>
+
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<h2>My order Page</h2>
+
+
+<br />
+
+
+<form id="form1" action="/myorderpage" modelAttribute="currentOrder"  method="myorders">
+<div class="blockorder" id="listproduct">
+
+    <ul th:each="orders : ${orderslist}">
+        <li class="color_normal"  th:id="${orders.ordertext}" th:value ="${orders.ordertext}"  th:text1="${orders.ordertext}" th:text="${orders.ordertext}" onclick='myClickOrder(id)' ></li>
+    </ul>
+
+</div>
+</form>
+
+</body>
+
+</html>

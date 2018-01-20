@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <style>
+      .layer {
+         overflow: scroll;
+         width: 300px;
+         height: 200px;
+         padding: 5px;
+         border: solid 1px black;
+      }
+      .block2 {
+         overflow: scroll;
+         width: 300px;
+         height: 200px;
+         padding: 5px;
+         border: solid 1px black;
+         position: relative;
+         left: 400px;
+         top: -212px;
+      }
+      .color_normal {
+         background-color: white;
+         color: black;
+      }
+      .color_active {
+         background-color: cyan;
+         color: black;
+      }
+      .color_active a {
+         color:red;
+      }
+   </style>
+</head>
+<script>
+   var divSelected = null;
+function myColor(x) {
+    document.writeln('44');
+    if (divSelected !=null) divSelected.className = 'color_normal';
+    divSelected = document.getElementById(x);
+    document.getElementById(x).classname= 'color_active';
+}
+
+   function myClick(number) {
+       var data = {};
+       var string1;
+       string1 = number;
+       data.product = number;
+      // var json1 = JSON.stringify(data);
+       var xhr = new XMLHttpRequest();
+       xhr.open("POST","/startpage1",true);
+       xhr.setRequestHeader('Content-type','charset=utf-8');
+       var post ="string1=" + string1;
+       xhr.send(post);
+       //xhr.send(string1);
+      // xhr.send(json1);
+
+
+       idProduct = number;
+       strProduct = number;
+       alert("mmmn "+ idProduct);
+
+
+
+
+       resultChange = confirm("Добавить этот товар в корзину?");
+
+
+         if (resultChange) {
+             //document.getElementById("currentproduct").innerHTML = idProduct;
+             document.getElementById("currentproduct").innerHTML = strProduct;
+           } else {
+
+             //document.getElementById("currentproduct").innerHTML = "${productn}";
+            }
+
+
+   }  // end myClick
+</script>
+
+   <body>
+
+   <!-- Include _menu.html -->
+   <th:block th:include="/_menu"></th:block>
+
+
+   <h2>Start Page! </h2>
+   <p th:text="${client2}" />
+   <br />
+   <p> Выберите ваши покупки:   </p>
+   <br />
+   <style type="text/css">
+      .selected {
+         color: cyan;
+      }
+   </style>
+
+   <form  name="username" method="startpage" >
+<div class="layer" id="listproduct">
+
+   <ul th:each="products : ${productlist}">
+   <li class="color_normal"  th:id="${products.product}" th:value ="${products.product}"  th:text1="${products.product}" th:text="${products.product}" onclick='myClick(id)' ></li>
+      </ul>
+
+</div>
+
+   </form>
+
+   <form id="form1" action="/startpage" modelAttribute="currentOrder"  method="startpage">
+       <div class="block2" id="currentproduct" >
+      <p th:text="${client2}" name="strProduct"/>
+      <p th:text="${vol4}" />
+
+   </div>
+       <br />
+
+   </form>
+
+
+   <br />
+   </body>
+</html>

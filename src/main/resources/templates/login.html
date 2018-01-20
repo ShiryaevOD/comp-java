@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<h2>Login Page!</h2>
+
+<form  name="username" method="indexMetod4" >
+ <div><label> User Name: <input type="text" name="loginClient"/> </label></div>
+    <br />
+ <div><label> Password: &nbsp;&nbsp; <input type="password" name="passwordClient"/> </label></div>
+    <br />
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+<br />
+<p th:text="${errorLogin}" />
+</body>
+
+
+
+</html>
